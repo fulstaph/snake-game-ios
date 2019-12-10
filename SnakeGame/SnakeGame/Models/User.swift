@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct User {
+public struct User: Equatable {
     public var login: String
     public var name: String
     public var password: String
@@ -18,4 +18,13 @@ public struct User {
         name = dto.name
         password = dto.password
     }
-}
+    
+    init(login: String, name: String, password: String) {
+        self.login = login
+        self.name = name
+        self.password = password
+    }
+    
+    public static func ==(lhs: User, rhs: User) -> Bool {
+        return lhs.name == rhs.name && lhs.login == rhs.login && lhs.password == rhs.password
+    }}
