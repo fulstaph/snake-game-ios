@@ -56,6 +56,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B13A6D0523A017A0006AA9FE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B13B881F23A000F4003FB2D2 /* SnakeModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +105,7 @@
 		B1588994239DD60B005B79C4 /* SnakeGame */ = {
 			isa = PBXGroup;
 			children = (
+				B13A6D0523A017A0006AA9FE /* Models */,
 				B13B882823A00DFA003FB2D2 /* Views */,
 				B15889B3239EA57E005B79C4 /* GameLogic */,
 				B15889B4239FF514005B79C4 /* GradientView.swift */,

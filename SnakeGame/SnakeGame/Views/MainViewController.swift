@@ -50,8 +50,27 @@ class MainViewController: UIViewController {
             startGameButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100)
         ])
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logout))
+        self.navigationItem.rightBarButtonItem?.tintColor = .black
+        
         print("main")
         // Do any additional setup after loading the view.
+    }
+    
+    @objc func logout() {
+        let alert = UIAlertController(title: "Logging out", message: "Are you sure you'd like to log out?", preferredStyle: .alert)
+        
+        let logout = UIAlertAction(title: "Yes", style: .destructive) { (action:UIAlertAction) in
+            AppDelegate.shared.rootViewController.switchToAuthScreen()
+        }
+        let stay = UIAlertAction(title: "No", style: .default) { (action:UIAlertAction) in }
+        stay.setValue(UIColor.red, forKey: "titleTextColor")
+        
+        alert.addAction(stay)
+
+        alert.addAction(logout)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func onStartGameButtonTapped() {
