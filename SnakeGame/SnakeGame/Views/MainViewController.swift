@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
 
     private var startGameButton: UIButton!
     
+    //private var currentPlayer: CurrentPlayer?
+    
     private var gradient: CAGradientLayer = {
         let grad = CAGradientLayer()
         grad.colors = [UIColor.white.cgColor, UIColor.green.cgColor]
@@ -21,9 +23,17 @@ class MainViewController: UIViewController {
         return grad
     }()
     
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Main Screen"
+        self.title = "Hello, \(CurrentPlayerSingleton.shared.player.name)!"
         
         gradient.frame = self.view.bounds
         self.view.layer.insertSublayer(gradient, at: 0)

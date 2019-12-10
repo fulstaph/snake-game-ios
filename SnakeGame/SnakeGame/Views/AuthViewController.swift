@@ -134,6 +134,7 @@ class AuthViewController: UIViewController {
         }
         for user in users
             where user.login == loginTextField?.text && user.password == passwordTextField?.text {
+                CurrentPlayerSingleton.shared.player = user
                 root.rootViewController.switchToMainScreen()
                 root.logged = true
         }
