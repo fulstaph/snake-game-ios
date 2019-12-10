@@ -61,11 +61,23 @@ class StartScreenViewController: UIViewController {
     }
     
     @objc func onStartButtonTap() {
+        //let group = DispatchGroup()
+        //group.enter()
         if AppDelegate.shared.logged {
-            AppDelegate.shared.rootViewController.switchToMainScreen()
+            button.scale()
+            //group.leave()
+            //group.notify(queue: DispatchQueue.main) {
+                AppDelegate.shared.rootViewController.switchToMainScreen()
+            //}
         } else {
-            AppDelegate.shared.rootViewController.switchToAuthScreen()
+            button.shake()
+            button.scale()
+            //group.leave()
+            //group.notify(queue: DispatchQueue.main) {
+                AppDelegate.shared.rootViewController.switchToAuthScreen()
+            //}
         }
+        button.shake()
     }
 
 }

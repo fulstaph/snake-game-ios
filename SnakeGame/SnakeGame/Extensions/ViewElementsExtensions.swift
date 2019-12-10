@@ -18,3 +18,17 @@ extension UIView {
         layer.add(animation, forKey: "shake")
     }
 }
+
+extension UIButton {
+    func scale() {
+        UIView.animate(withDuration: 1.0,
+                       animations: {
+                        self.transform = CGAffineTransform(scaleX: 2.0, y: 1.5)
+        },
+                       completion: { _ in
+                        UIView.animate(withDuration: 0.6) {
+                            self.transform = CGAffineTransform.identity
+                        }
+        })
+    }
+}
