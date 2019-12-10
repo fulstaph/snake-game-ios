@@ -138,6 +138,7 @@ class AuthViewController: UIViewController {
                 root.rootViewController.switchToMainScreen()
                 root.logged = true
         }
+        loginButton.shake()
     }
     
 }
