@@ -63,7 +63,9 @@ class AuthViewController: UIViewController {
         loginTextField.placeholder = "Enter login:"
         loginTextField.clearsOnBeginEditing = true
         loginTextField.tintColor = .black
+        loginTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         view.addSubview(loginTextField)
+        
         
         passwordTextField = UITextField(frame: .zero)
         passwordTextField.borderStyle = .roundedRect
@@ -73,9 +75,11 @@ class AuthViewController: UIViewController {
         passwordTextField.clearsOnBeginEditing = true
         passwordTextField.tintColor = .black
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         view.addSubview(passwordTextField)
         
         loginButton = UIButton(frame: .zero)
+        loginButton.alpha = 0.0
         loginButton.setTitle("Log in!", for: .normal)
         loginButton.backgroundColor = .green
         loginButton.setTitleColor(.black, for: .normal)
@@ -114,11 +118,18 @@ class AuthViewController: UIViewController {
             loginButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100)
         ])
         
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-//            for user in self.users! {
-//                print(user)
-//            }
-//        }
+    }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if !loginTextField.text!.isEmpty && !passwordTextField.text!.isEmpty {
+            UIView.animate(withDuration: 0.5) {
+                self.loginButton.alpha = 1
+            }
+            return
+        }
+        UIView.animate(withDuration: 0.5) {
+            self.loginButton.alpha = 0
+        }
     }
     
     @objc func dismissKeyboard() {
@@ -141,4 +152,11 @@ class AuthViewController: UIViewController {
         loginButton.shake()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let button = loginButton else {
+            return
+        }
+        button.alpha = 0.0
+    }
 }
