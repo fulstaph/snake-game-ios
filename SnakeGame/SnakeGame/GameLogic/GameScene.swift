@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 /// Пересечения объектов в некоей внутренней системе
-struct CollisionCategories{
+struct CollisionCategories {
     /// Тело змеи
     static let Snake: UInt32 = 0x1 << 0
     /// Голова змеи
@@ -25,6 +25,8 @@ class GameScene: SKScene {
     
     /// Змея
     var snake: Snake?
+    
+    var gameSessionEnded = false
     
     /// Запускается при запуске сцены (процесс создания базовых объектов)
     override func didMove(to view: SKView) {
@@ -167,10 +169,14 @@ extension GameScene: SKPhysicsContactDelegate {
     
     /// Сообщение о пройгрыше с возможностью начать игру заново
     func losingAlert(_ message: String) {
-        let alert = UIAlertController(title: "Финита!", message: message, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "The end!", message: message, preferredStyle: .actionSheet)
         
-        alert.addAction(UIAlertAction(title: "Ещё разок!", style: .destructive, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Try more!", style: .destructive, handler: { (action) in
             self.createSnake()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "I'm done", style: .destructive, handler: { (action) in
+            AppDelegate.shared.rootViewController.switchToMainScreen()
         }))
         
         self.view?.window?.rootViewController?.present(alert, animated: true, completion: nil)
@@ -205,7 +211,7 @@ extension GameScene: SKPhysicsContactDelegate {
             
         // Соприкосновение со стенкой экрана (часть домашнего задания)
         case CollisionCategories.EdgeBody:
-            losingAlert("Впечатался, друг?")
+            losingAlert("You've crashed!")
         default:
             break
         }

@@ -12,6 +12,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    var gameEnded = false
+    
     override func loadView() {
         super.loadView()
         self.view = SKView()
@@ -45,5 +47,6 @@ class GameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+
     }
 }
