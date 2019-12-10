@@ -24,12 +24,32 @@ class AuthViewController: UIViewController {
         return grad
     }()
     
+    var users: [User]? {
+        didSet {
+            print("set")
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Authorization"
         view.backgroundColor = .white
         print("auth")
        
+        let service = NetworkService()
+        service.loadUsers(completion: { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let users):
+                    self.users = users
+                case .failure(let error):
+                    let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                    self.show(alert, sender: nil)
+                }
+            }
+        })
+        
         gradient.frame = self.view.bounds
         self.view.layer.insertSublayer(gradient, at: 0)
         
@@ -93,6 +113,12 @@ class AuthViewController: UIViewController {
             loginButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             loginButton.centerYAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100)
         ])
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+//            for user in self.users! {
+//                print(user)
+//            }
+//        }
     }
     
     @objc func dismissKeyboard() {
@@ -101,8 +127,16 @@ class AuthViewController: UIViewController {
     }
     
     @objc func onLoginButtonTapped() {
-        AppDelegate.shared.logged = true
-        AppDelegate.shared.rootViewController.switchToMainScreen()
+        let root = AppDelegate.shared
+        guard let users = users else {
+            print("didnt get users yet!")
+            return
+        }
+        for user in users
+            where user.login == loginTextField?.text && user.password == passwordTextField?.text {
+                root.rootViewController.switchToMainScreen()
+                root.logged = true
+        }
     }
     
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B13A6D0823A02177006AA9FE /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A6D0723A02177006AA9FE /* UserDTO.swift */; };
+		B13A6D0A23A02234006AA9FE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A6D0923A02234006AA9FE /* User.swift */; };
+		B13A6D0E23A0251D006AA9FE /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A6D0D23A0251D006AA9FE /* NetworkService.swift */; };
 		B13B881C23A0004D003FB2D2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13B881B23A0004D003FB2D2 /* GameViewController.swift */; };
 		B13B881E23A0009E003FB2D2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13B881D23A0009E003FB2D2 /* GameScene.swift */; };
 		B13B882123A0013D003FB2D2 /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13B882023A0013D003FB2D2 /* Snake.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B13A6D0723A02177006AA9FE /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
+		B13A6D0923A02234006AA9FE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B13A6D0D23A0251D006AA9FE /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B13B881B23A0004D003FB2D2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		B13B881D23A0009E003FB2D2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		B13B882023A0013D003FB2D2 /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
@@ -59,8 +65,18 @@
 		B13A6D0523A017A0006AA9FE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B13A6D0723A02177006AA9FE /* UserDTO.swift */,
+				B13A6D0923A02234006AA9FE /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B13A6D0C23A024E9006AA9FE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B13A6D0D23A0251D006AA9FE /* NetworkService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		B13B881F23A000F4003FB2D2 /* SnakeModel */ = {
@@ -105,6 +121,7 @@
 		B1588994239DD60B005B79C4 /* SnakeGame */ = {
 			isa = PBXGroup;
 			children = (
+				B13A6D0C23A024E9006AA9FE /* Services */,
 				B13A6D0523A017A0006AA9FE /* Models */,
 				B13B882823A00DFA003FB2D2 /* Views */,
 				B15889B3239EA57E005B79C4 /* GameLogic */,
@@ -212,10 +229,13 @@
 				B13B882323A00168003FB2D2 /* SnakeHead.swift in Sources */,
 				B15889B2239DFB17005B79C4 /* MainViewController.swift in Sources */,
 				B13B881C23A0004D003FB2D2 /* GameViewController.swift in Sources */,
+				B13A6D0A23A02234006AA9FE /* User.swift in Sources */,
 				B13B882723A001BD003FB2D2 /* Apple.swift in Sources */,
+				B13A6D0E23A0251D006AA9FE /* NetworkService.swift in Sources */,
 				B15889B5239FF514005B79C4 /* GradientView.swift in Sources */,
 				B13B882523A0018F003FB2D2 /* SnakeBodyPart.swift in Sources */,
 				B15889AC239DDFC8005B79C4 /* CoreDataTest.xcdatamodeld in Sources */,
+				B13A6D0823A02177006AA9FE /* UserDTO.swift in Sources */,
 				B1588996239DD60B005B79C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
