@@ -12,6 +12,8 @@ class StartScreenViewController: UIViewController {
     
     private var button: UIButton!
     
+    private let logo = UIImageView(image: UIImage(named: "logo"))
+    
     private var gradient: CAGradientLayer = {
         let grad = CAGradientLayer()
         grad.colors = [UIColor.white.cgColor, UIColor.green.cgColor]
@@ -24,7 +26,11 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.navigationItem.title = "Hello!"
-        
+        logo.contentMode = .scaleAspectFill
+        logo.frame.size = CGSize(width: 100, height: 100)
+        logo.center = view.center
+        logo.center.y -= 200
+        view.addSubview(logo)
         //view.backgroundColor = .clear
         gradient.frame = self.view.bounds
         self.view.layer.insertSublayer(gradient, at: 0)
