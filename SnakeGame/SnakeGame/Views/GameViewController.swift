@@ -12,7 +12,16 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
-    var gameEnded = false
+    private let image = UIImageView(image: UIImage(named: "snakeCircle4"))
+    
+    private var gradient: CAGradientLayer = {
+        let grad = CAGradientLayer()
+        grad.colors = [UIColor.white.cgColor, UIColor.green.cgColor]
+        grad.locations = [0.0, 1.0]
+        grad.startPoint = CGPoint(x: 0.5, y: 1.0)
+        grad.endPoint = CGPoint(x: 0.5, y: 0.0)
+        return grad
+    }()
     
     override func loadView() {
         super.loadView()
@@ -21,13 +30,47 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
+        let scene = GameScene(size: self.view.bounds.size)
+        
+        /// Главная обрасть экрана
+        let skView = self.view as! SKView
+        skView.backgroundColor = .clear
+        gradient.frame = skView.bounds
+        skView.layer.insertSublayer(gradient, at: 0)
+        DispatchQueue.main.async {
+            self.image.backgroundColor = .clear
+            self.image.contentMode = .scaleAspectFill
+            self.image.frame.size = CGSize(width: 100, height: 100)
+            //image.center = view.center
+        
+            self.image.center = skView.center
+            self.view.addSubview(self.image)
+            /*
+            UIView.animate(withDuration: 1.8) {
+                self.image.transform = CGAffineTransform.init(rotationAngle: 1 * .pi)
+                UIView.animate(withDuration: 0.8, animations: {
+                    self.image.alpha = 0.0
+                })
+            }
+            */
+            UIView.animate(withDuration: 2.0,
+                           delay: 0.0,
+                           options: [.curveEaseInOut, .repeat, .autoreverse],
+                           animations: { () -> Void in
+                            self.image.transform = CGAffineTransform.init(rotationAngle: 1 * .pi)
+                            UIView.animate(withDuration: 0.8, animations: {
+                                self.image.alpha = 0.0
+                            })
+            }, completion: { (finished: Bool) -> Void in
+
+            })
+        }
+
+
         /// Экземпляр сцены
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let scene = GameScene(size: self.view.bounds.size)
-            
-            /// Главная обрасть экрана
-            let skView = self.view as! SKView
-            
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+
             // Оторажение FPS
             skView.showsFPS = true
             
