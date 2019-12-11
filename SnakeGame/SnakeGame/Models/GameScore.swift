@@ -18,4 +18,7 @@ public final class GameScore {
     public func increaseScore() {
         score += 10
     }
+    public func reset() {
+        score = 0
+    }
 }

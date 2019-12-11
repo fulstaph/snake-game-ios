@@ -56,11 +56,11 @@ class GameViewController: UIViewController {
                 })
             }
             */
-            UIView.animate(withDuration: 1.5,
+            UIView.animate(withDuration: 2.0,
                            delay: 0.0,
                            options: [.curveEaseInOut, .repeat, .autoreverse],
                            animations: { () -> Void in
-                            self.image.transform = CGAffineTransform.init(rotationAngle: 0.75 * .pi)
+                            self.image.transform = CGAffineTransform.init(rotationAngle: 0.8 * .pi)
                             UIView.animate(withDuration: 0.8, animations: {
                                 self.image.alpha = 0.0
                             })
@@ -71,7 +71,7 @@ class GameViewController: UIViewController {
 
 
         /// Экземпляр сцены
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.9) {
             
             self.scoreText.center.x = skView.frame.maxX - 40
             self.scoreText.center.y = skView.frame.minX - 40
