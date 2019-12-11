@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     //private var currentPlayer: CurrentPlayer?
     
-    var data = Array<Int>(0...10)
+    var data = GameScore.shared.data
     
     private var collectionView = ScoreDataCollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = "Your top 10 scores"
-        title.font = .boldSystemFont(ofSize: 28)
+        title.font = .boldSystemFont(ofSize: 32)
         
         let description = UILabel()
         description.translatesAutoresizingMaskIntoConstraints = false

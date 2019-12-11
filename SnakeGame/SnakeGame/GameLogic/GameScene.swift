@@ -182,12 +182,14 @@ extension GameScene: SKPhysicsContactDelegate {
         
         alert.addAction(UIAlertAction(title: "Try more!", style: .destructive, handler: { (action) in
             self.createSnake()
+            GameScore.shared.addRecordToTheTop()
             GameScore.shared.reset()
             self.scoreLabel.text = "Score: \(GameScore.shared.score)"
         }))
         
         alert.addAction(UIAlertAction(title: "I'm done", style: .destructive, handler: { (action) in
             AppDelegate.shared.rootViewController.switchToMainScreen()
+            GameScore.shared.addRecordToTheTop()
             GameScore.shared.reset()
             self.scoreLabel.text = "Score: \(GameScore.shared.score)"
         }))

@@ -15,10 +15,17 @@ public final class GameScore {
     private(set) var score: Int = 0
     private init() {}
     
+    var data: [Int] = []
+    
     public func increaseScore() {
         score += 10
     }
     public func reset() {
         score = 0
+    }
+    
+    public func addRecordToTheTop() {
+        data.append(score)
+        data.sort { $0 > $1 }
     }
 }

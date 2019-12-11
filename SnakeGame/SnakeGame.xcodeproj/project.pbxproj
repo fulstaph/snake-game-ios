@@ -33,7 +33,6 @@
 		B15889AE239DE045005B79C4 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15889AD239DE045005B79C4 /* StartScreenViewController.swift */; };
 		B15889B0239DFA68005B79C4 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15889AF239DFA68005B79C4 /* AuthViewController.swift */; };
 		B15889B2239DFB17005B79C4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15889B1239DFB17005B79C4 /* MainViewController.swift */; };
-		B15889B5239FF514005B79C4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15889B4239FF514005B79C4 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +73,6 @@
 		B15889AD239DE045005B79C4 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B15889AF239DFA68005B79C4 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		B15889B1239DFB17005B79C4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		B15889B4239FF514005B79C4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,7 +189,6 @@
 				B13A6D0523A017A0006AA9FE /* Models */,
 				B13B882823A00DFA003FB2D2 /* Views */,
 				B15889B3239EA57E005B79C4 /* GameLogic */,
-				B15889B4239FF514005B79C4 /* GradientView.swift */,
 				B1588995239DD60B005B79C4 /* AppDelegate.swift */,
 				B1588997239DD60B005B79C4 /* RootViewController.swift */,
 				B158899C239DD610005B79C4 /* Assets.xcassets */,
@@ -344,7 +341,6 @@
 				B13B882723A001BD003FB2D2 /* Apple.swift in Sources */,
 				B13A6D2B23A09D1C006AA9FE /* ScoreCollectionViewCell.swift in Sources */,
 				B13A6D0E23A0251D006AA9FE /* NetworkService.swift in Sources */,
-				B15889B5239FF514005B79C4 /* GradientView.swift in Sources */,
 				B13B882523A0018F003FB2D2 /* SnakeBodyPart.swift in Sources */,
 				B15889AC239DDFC8005B79C4 /* CoreDataTest.xcdatamodeld in Sources */,
 				B13A6D0823A02177006AA9FE /* UserDTO.swift in Sources */,
