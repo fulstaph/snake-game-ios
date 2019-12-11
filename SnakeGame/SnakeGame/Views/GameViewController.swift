@@ -14,6 +14,8 @@ class GameViewController: UIViewController {
     
     private let image = UIImageView(image: UIImage(named: "snakeCircle4"))
     
+    private let scoreText = UITextView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+    
     private var gradient: CAGradientLayer = {
         let grad = CAGradientLayer()
         grad.colors = [UIColor.white.cgColor, UIColor.green.cgColor]
@@ -54,11 +56,11 @@ class GameViewController: UIViewController {
                 })
             }
             */
-            UIView.animate(withDuration: 2.0,
+            UIView.animate(withDuration: 1.5,
                            delay: 0.0,
                            options: [.curveEaseInOut, .repeat, .autoreverse],
                            animations: { () -> Void in
-                            self.image.transform = CGAffineTransform.init(rotationAngle: 1 * .pi)
+                            self.image.transform = CGAffineTransform.init(rotationAngle: 0.75 * .pi)
                             UIView.animate(withDuration: 0.8, animations: {
                                 self.image.alpha = 0.0
                             })
@@ -69,8 +71,14 @@ class GameViewController: UIViewController {
 
 
         /// Экземпляр сцены
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            
+            self.scoreText.center.x = skView.frame.maxX - 40
+            self.scoreText.center.y = skView.frame.minX - 40
+            self.scoreText.backgroundColor = .clear
+            self.scoreText.text = "Score: \(GameScore.shared.score)"
+            self.scoreText.textColor = .red
+            skView.addSubview(self.scoreText)
             // Оторажение FPS
             skView.showsFPS = true
             

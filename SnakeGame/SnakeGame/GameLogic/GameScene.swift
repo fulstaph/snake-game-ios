@@ -22,7 +22,15 @@ struct CollisionCategories {
 }
 
 class GameScene: SKScene {
-    
+    var scoreLabel: SKLabelNode = {
+        var label = SKLabelNode(fontNamed: "Chalkduster")
+        label.fontColor = .red
+        label.horizontalAlignmentMode = .right
+        //scoreLabel.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        //label.position = CGPoint(x: , y: 700)
+        label.text = "Score: \(GameScore.shared.score)"
+        return label
+    }()
     /// Змея
     var snake: Snake?
     
@@ -33,7 +41,8 @@ class GameScene: SKScene {
         
         // Задний фон
         backgroundColor = #colorLiteral(red: 0.4264220105, green: 0.5855409264, blue: 0.4692757062, alpha: 1)
-        
+        scoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height - 50)
+        self.addChild(scoreLabel)
         // Вектор и силы гравитации
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         
@@ -206,6 +215,10 @@ extension GameScene: SKPhysicsContactDelegate {
             // Удаляем яблоко
             apple?.removeFromParent()
             
+            let score = GameScore.shared
+            score.increaseScore()
+            print(score.score)
+            scoreLabel.text = "Score: \(GameScore.shared.score)"
             // Создаем новое яблоко
             createApple()
             

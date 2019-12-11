@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnakeGame/GameLogic/GameScene.swift"
-            timestampString = "597694162.5577739"
+            timestampString = "597723175.193418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnakeGame/GameLogic/GameScene.swift"
-            timestampString = "597694162.560436"
+            timestampString = "597723175.196178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "didMove(to:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnakeGame/Views/AuthViewController.swift"
-            timestampString = "597713723.375965"
+            timestampString = "597723175.196717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
@@ -164,15 +164,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SnakeGame/Views/GameViewController.swift"
-            timestampString = "597713723.37784"
+            timestampString = "597723175.197017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
